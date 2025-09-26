@@ -4,9 +4,9 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Alumno extends Model {}
   Alumno.init({
-    nombre: DataTypes.STRING,
+  nombre: DataTypes.STRING,
     edad: DataTypes.INTEGER,
-    email: DataTypes.STRING
+    email: DataTypes.STRING  
   }, {
     sequelize,
     modelName: 'Alumno',

@@ -12,8 +12,15 @@ exports.getById = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-  const alumno = await Alumno.create(req.body);
-  res.status(201).json(alumno);
+  console.log('BODY RECIBIDO:', req.body);
+  try {
+    const alumno = await Alumno.create(req.body);
+    console.log('Alumno creado:', alumno.toJSON());
+    res.status(201).json(alumno);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al crear alumno' });
+  }
 };
 
 exports.update = async (req, res) => {
